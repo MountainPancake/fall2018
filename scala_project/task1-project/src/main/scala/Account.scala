@@ -21,11 +21,12 @@ class Account(val bank: Bank, initialBalance: Double) {
         }
     }
     def getBalanceAmount: Double = {
-        balance.amount
+        balance.synchronized{
+            balance.amount
+        }
     }
 
     def transferTo(account: Account, amount: Double) = {
-        if(amount < 0) throw new exceptions.IllegalAmountException()
         bank addTransactionToQueue (this, account, amount)
     }
 

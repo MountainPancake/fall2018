@@ -10,6 +10,7 @@ class Bank(val allowedAttempts: Integer = 3) {
     def addTransactionToQueue(from: Account, to: Account, amount: Double): Unit = {
       transactionsQueue push new Transaction(
         transactionsQueue, processedTransactions, from, to, amount, allowedAttempts)
+        processTransactions
     }
 
     // Hint: use a counter
@@ -24,6 +25,11 @@ class Bank(val allowedAttempts: Integer = 3) {
     }
 
     private def processTransactions: Unit = {
+        if (!transactionsQueue.isEmpty) {
+            val transaction = transactionsQueue.pop
+            executorContext submit transaction
+            Thread.sleep(10)
+        }
     }
 
     def addAccount(initialBalance: Double): Account = {
@@ -33,5 +39,4 @@ class Bank(val allowedAttempts: Integer = 3) {
     def getProcessedTransactionsAsList: List[Transaction] = {
         processedTransactions.iterator.toList
     }
-
 }
