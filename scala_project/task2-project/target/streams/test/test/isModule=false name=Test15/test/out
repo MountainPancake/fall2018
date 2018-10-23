@@ -1,0 +1,14 @@
+[0m[[0m[0minfo[0m] [0m[0m[32mTest15:[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m- Several valid transactions between several accounts in several banks. All information should be correct. *** FAILED ***[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  java.lang.UnsupportedOperationException: empty.reduceLeft[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at scala.collection.LinearSeqOptimized.reduceLeft(LinearSeqOptimized.scala:135)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at scala.collection.LinearSeqOptimized.reduceLeft$(LinearSeqOptimized.scala:134)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at scala.collection.immutable.List.reduceLeft(List.scala:86)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at scala.collection.TraversableOnce.reduce(TraversableOnce.scala:208)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at scala.collection.TraversableOnce.reduce$(TraversableOnce.scala:208)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at scala.collection.AbstractTraversable.reduce(Traversable.scala:104)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at Account.allTransactionsCompleted(Account.scala:32)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at TestHelper$.$anonfun$waitUntilAllTransactionsAreCompleted$1(AccountTests.scala:35)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at TestHelper$.$anonfun$waitUntilAllTransactionsAreCompleted$1$adapted(AccountTests.scala:34)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at scala.collection.immutable.List.foreach(List.scala:389)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  ...[0m[0m

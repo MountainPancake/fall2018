@@ -1,0 +1,11 @@
+[0m[[0m[31merror[0m] [0m[0mC:\Users\Simon Smeets\Documents\Unief\Erasmus\TDT4165\ScalaProject\scala_project\task2-project\src\main\scala\Bank.scala:34:27: type mismatch;[0m
+[0m[[0m[31merror[0m] [0m[0m found   : Unit[0m
+[0m[[0m[31merror[0m] [0m[0m required: Option[akka.actor.ActorRef][0m
+[0m[[0m[31merror[0m] [0m[0m        case e: Exception => [0m
+[0m[[0m[31merror[0m] [0m[0m                          ^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\Users\Simon Smeets\Documents\Unief\Erasmus\TDT4165\ScalaProject\scala_project\task2-project\src\main\scala\Bank.scala:44:29: type mismatch;[0m
+[0m[[0m[31merror[0m] [0m[0m found   : Unit[0m
+[0m[[0m[31merror[0m] [0m[0m required: Option[akka.actor.ActorRef][0m
+[0m[[0m[31merror[0m] [0m[0m          case e: Exception =>[0m
+[0m[[0m[31merror[0m] [0m[0m                            ^[0m
+[0m[[0m[31merror[0m] [0m[0mtwo errors found[0m

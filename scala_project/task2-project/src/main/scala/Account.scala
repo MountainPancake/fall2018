@@ -24,12 +24,18 @@ class Account(val accountId: String, val bankId: String, val initialBalance: Dou
 
     def getTransactions: List[Transaction] = {
         // Should return a list of all Transaction-objects stored in transactions
-        transactions.values
+        transactions.values.toList
     }
 
     def allTransactionsCompleted: Boolean = {
         // Should return whether all Transaction-objects in transactions are completed
-        transactions.map(isCompleted).reduce(&&)
+        if (getTransactions.length > 2){
+        getTransactions.map(x => x.isCompleted).reduce(_ && _)
+      }else if (getTransactions.length == 1){
+        getTransactions.head.isCompleted
+      }else{
+        true
+      }
     }
 
     def withdraw(amount: Double): Unit = {
@@ -89,21 +95,27 @@ class Account(val accountId: String, val bankId: String, val initialBalance: Dou
 		case TransactionRequestReceipt(to, transactionId, transaction) => {
 			// Process receipt
       transaction.receiptReceived = true
-			transactions.put(transactionId,transaction)
+
 		}
 
 		case BalanceRequest => getBalanceAmount // Should return current balance
 
 		case t: Transaction => {
 			// Handle incoming transaction
-			???
+			try {
+        deposit(t.amount)
+        t.status = TransactionStatus.SUCCESS
+      } catch {
+        case e: Exception => t.status = TransactionStatus.FAILED
+      }finally{
+        sender ! TransactionRequestReceipt(t.to, t.id , t)
+      }
 
 
 
-      BankManager.findAccount(,t.from)
 		}
 
-		case msg => ???
+		case msg =>
     }
 
 
